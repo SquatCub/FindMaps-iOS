@@ -1,24 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="s0f-23-CWJ">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--FindMaps-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FindMaps" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="j66-FL-Yj8">
+                                <rect key="frame" x="0.0" y="140" width="375" height="527"/>
+                            </mapView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="H6F-Zm-Lrq">
+                                <rect key="frame" x="0.0" y="96" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Mk9-VT-fNh"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="j66-FL-Yj8" firstAttribute="top" secondItem="H6F-Zm-Lrq" secondAttribute="bottom" id="FhI-vu-scr"/>
+                            <constraint firstItem="H6F-Zm-Lrq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="HuN-op-zBD"/>
+                            <constraint firstItem="H6F-Zm-Lrq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="LhM-0o-MNK"/>
+                            <constraint firstItem="H6F-Zm-Lrq" firstAttribute="trailing" secondItem="j66-FL-Yj8" secondAttribute="trailing" id="Ox7-R7-7Ht"/>
+                            <constraint firstItem="H6F-Zm-Lrq" firstAttribute="leading" secondItem="j66-FL-Yj8" secondAttribute="leading" id="bQc-mI-EE2"/>
+                            <constraint firstItem="H6F-Zm-Lrq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bUo-w6-EGr"/>
+                            <constraint firstItem="j66-FL-Yj8" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="eQl-st-F9h"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="FindMaps" id="ujP-kW-wlY">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="aOd-Fn-Coe">
+                            <imageReference key="image" image="play.circle.fill" catalog="system" symbolScale="large"/>
+                            <connections>
+                                <action selector="ubicacionButton:" destination="BYZ-38-t0r" id="BRK-C7-zJ2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="MapMK" destination="j66-FL-Yj8" id="VEK-ZC-axn"/>
+                        <outlet property="buscadorSearchBar" destination="H6F-Zm-Lrq" id="3ZS-dN-A7e"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="938.39999999999998" y="102.99850074962519"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="PcC-nP-kv0">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="s0f-23-CWJ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="peD-Gw-zgB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Rxk-Cj-BOO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K0Y-sA-02k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="28.985507246376812" y="103.79464285714285"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="play.circle.fill" catalog="system" width="128" height="121"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
