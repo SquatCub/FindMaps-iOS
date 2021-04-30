@@ -24,6 +24,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        buscadorSearchBar.delegate = self
         manager.delegate = self
         manager.requestWhenInUseAuthorization()
         manager.requestLocation()
